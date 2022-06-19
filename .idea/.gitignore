@@ -1,6 +1,9 @@
 *
 
 !/.gitignore
+!/copyright
+!/copyright/Apache_2_0.xml
+!/copyright/profiles_settings.xml
 !/codeStyles
 !/codeStyles/codeStyleConfig.xml
 !/codeStyles/Project.xml
