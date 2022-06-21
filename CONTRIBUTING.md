@@ -30,15 +30,12 @@ implement the feature submit a detailed issue where it can be discussed beforeha
 
 ## Pull Request Guidelines
 
-[//]: # (TODO)
 TODO
 
 ## Code Quality
 
 ### Rules
 
-- Two kotlin extension methods must be made everytime `java.lang.reflect.Class` is used in the 
-public api. One must use `kotlin.reflect.KClass` and the other must use reified type parameters.
 
 ### Style
 
