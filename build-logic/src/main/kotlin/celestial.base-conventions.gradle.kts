@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-plugins {
-    id("celestial.base-conventions")
+repositories {
+    mavenCentral()
 }
-
-group = "$group.celestial"

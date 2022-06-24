@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
-plugins {
-    id("celestial.base-conventions")
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
+    }
 }
-
-group = "$group.celestial"

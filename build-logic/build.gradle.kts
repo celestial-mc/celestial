@@ -15,7 +15,23 @@
  */
 
 plugins {
-    id("celestial.base-conventions")
+    `kotlin-dsl`
 }
 
-group = "$group.celestial"
+repositories {
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation(libs.errorProne.plugin)
+    implementation(libs.googleJavaFormat.plugin)
+}
+
+dependencies {
+    compileOnly(files(libs::class.java.protectionDomain.codeSource.location))
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
