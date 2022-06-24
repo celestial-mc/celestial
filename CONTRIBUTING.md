@@ -30,15 +30,23 @@ implement the feature submit a detailed issue where it can be discussed beforeha
 
 ## Pull Request Guidelines
 
-[//]: # (TODO)
 TODO
 
 ## Code Quality
 
 ### Rules
 
-- Two kotlin extension methods must be made everytime `java.lang.reflect.Class` is used in the 
-public api. One must use `kotlin.reflect.KClass` and the other must use reified type parameters.
+- Use `java.util.Optional` instead of null unless returning null if argument is null
+- No `return null;` statements
+- Methods and parameters must be annotated with `org.jetbrains.annotations.NotNull` or 
+  `org.jetbrains.annotations.NotNull`
+- Classes not made for public consumption should be marked with 
+  `@org.jetbrains.annotations.ApiStatus.Experimental`
+- Public packages, classes, methods, inner classes and public or protected fields must have 
+  javadocs. 
+- All methods except void or simple getter methods (only return statement) should be annotated with 
+  `com.google.errorprone.annotations.CanIgnoreReturnValue` or 
+  `com.google.errorprone.annotations.CheckReturnValue`
 
 ### Style
 

@@ -15,7 +15,6 @@
  */
 
 plugins {
-    id("celestial.base-conventions")
+    `maven-publish`
+    id("celestial.java-conventions")
 }
-
-group = "$group.celestial"

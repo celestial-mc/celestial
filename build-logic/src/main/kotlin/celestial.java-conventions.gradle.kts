@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import net.ltgt.gradle.errorprone.errorprone
+
 /*
  * Copyright 2022 Sparky
  *
@@ -30,17 +32,48 @@
  * limitations under the License.
  */
 
-rootProject.name = "celestial"
+plugins {
+    java
+    `java-library`
+    jacoco
 
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
-    includeBuild("build-logic")
+    id("net.ltgt.errorprone")
+    id("com.github.sherter.google-java-format")
+    id("celestial.base-conventions")
 }
 
-sequenceOf<String>().forEach {
-    include(it)
-    project(":$it").name = "${rootProject.name}-$it"
+val libs = extensions.getByType(org.gradle.accessors.dm.LibrariesForLibs::class)
+
+dependencies {
+    annotationProcessor(libs.nullaway)
+
+    compileOnly(libs.errorProne.annotations)
+    compileOnly(libs.jetbrainsAnnotations)
+
+    testImplementation(platform(libs.junit.bom))
+    testImplementation(libs.junit.api)
+    testRuntimeOnly(libs.junit.engine)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+    withJavadocJar()
+    withSourcesJar()
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.errorprone.disableWarningsInGeneratedCode.set(true)
+    options.errorprone {
+        check("NullAway", net.ltgt.gradle.errorprone.CheckSeverity.ERROR)
+        option("NullAway:AnnotatedPackages", "io.github.celestialmc")
+    }
+}
+
+googleJavaFormat {
+    options(mapOf("style" to "AOSP"))
+}
+
+tasks.getByName<Test>("test") {
+    useJUnitPlatform()
 }
