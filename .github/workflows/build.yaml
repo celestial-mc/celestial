@@ -27,4 +27,8 @@ jobs:
       - name: Build
         run: gradlew build
 
-      # TODO(Sparky983): Upload artifacts
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: '*/build/libs'
+          if-no-files-found: error
