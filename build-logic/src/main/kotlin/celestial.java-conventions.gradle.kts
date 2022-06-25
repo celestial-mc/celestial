@@ -16,22 +16,6 @@
 
 import net.ltgt.gradle.errorprone.errorprone
 
-/*
- * Copyright 2022 Sparky
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 plugins {
     java
     `java-library`
@@ -45,6 +29,8 @@ plugins {
 val libs = extensions.getByType(org.gradle.accessors.dm.LibrariesForLibs::class)
 
 dependencies {
+    errorprone(libs.errorProne.core)
+
     annotationProcessor(libs.nullaway)
 
     compileOnly(libs.errorProne.annotations)
@@ -64,9 +50,11 @@ java {
 
 tasks.withType<JavaCompile>().configureEach {
     options.errorprone.disableWarningsInGeneratedCode.set(true)
-    options.errorprone {
-        check("NullAway", net.ltgt.gradle.errorprone.CheckSeverity.ERROR)
-        option("NullAway:AnnotatedPackages", "io.github.celestialmc")
+    if (!name.toLowerCase().contains("test")) {
+        options.errorprone {
+            check("NullAway", net.ltgt.gradle.errorprone.CheckSeverity.ERROR)
+            option("NullAway:AnnotatedPackages", "io.github.celestialmc")
+        }
     }
 }
 
