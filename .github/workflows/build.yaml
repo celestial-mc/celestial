@@ -27,7 +27,18 @@ jobs:
       - name: Build
         run: gradlew build
 
-      - uses: actions/upload-artifact@v3
+      - name: Generate coverage report
+        run: gradlew jacocoTestReport
+
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          flags: unit-tests
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: Package
           path: '*/build/libs'

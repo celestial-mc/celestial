@@ -48,6 +48,12 @@ java {
     withSourcesJar()
 }
 
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+    }
+}
+
 tasks.withType<JavaCompile>().configureEach {
     options.errorprone.disableWarningsInGeneratedCode.set(true)
     if (!name.toLowerCase().contains("test")) {
