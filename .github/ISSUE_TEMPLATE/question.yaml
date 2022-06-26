@@ -1,0 +1,14 @@
+name: Question
+description: Ask a question
+title: '[Question] '
+labels:
+  - question
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: Ask a question.
+      placeholder: Are unicorns real?
+    validations:
+      required: true
