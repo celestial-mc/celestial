@@ -1,12 +1,12 @@
 <img src="./img/banner.png">
 
-<p align="center">
+<p style="text-align: center;">
     <img src="https://img.shields.io/codecov/c/github/celestial-mc/celestial?label=Coverage&style=flat-square&color=126DFF&labelColor=101E33" alt="Coverage">
     <img src="https://img.shields.io/github/commit-activity/m/celestial-mc/celestial?label=Commits&style=flat-square&color=126DFF&labelColor=101E33" alt="Commit activity">
     <img src="https://img.shields.io/github/license/celestial-mc/celestial?label=License&style=flat-square&color=126DFF&labelColor=101E33" alt="License Apache">
 </p>
 
-<p align="center">An simple annotation driven application API</p>
+<p style="text-align: center;">An simple annotation driven application API</p>
 
 ## Table of Contents
 
