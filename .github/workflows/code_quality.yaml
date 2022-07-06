@@ -5,6 +5,14 @@ on:
       - master
 
 jobs:
+  qodana:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Qodana scan
+        uses: JetBrains/qodana-action@v5.1.0
   style:
     runs-on: ubuntu-latest
     steps:
