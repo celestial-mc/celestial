@@ -48,6 +48,8 @@ tasks.jacocoTestReport {
 
 googleJavaFormat {
     options(mapOf("style" to "AOSP"))
+    exclude("**/build/")
+    exclude("**/.gradle")
 }
 
 tasks.getByName<Test>("test") {
