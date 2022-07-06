@@ -15,7 +15,8 @@
  */
 
 plugins {
-    id("celestial.base-conventions")
+    // TODO(Sparky983): change back to base conventions when first sub project is added
+    id("celestial.java-conventions") // so CI doesn't fail for no verifyGoogleJavaFormat task
 }
 
 group = "$group.celestial"

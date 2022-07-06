@@ -17,10 +17,6 @@
 rootProject.name = "celestial"
 
 dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
     includeBuild("build-logic")
 }
 
@@ -28,5 +24,3 @@ sequenceOf<String>().forEach {
     include(it)
     project(":$it").name = "${rootProject.name}-$it"
 }
-
-include("coding-rules")

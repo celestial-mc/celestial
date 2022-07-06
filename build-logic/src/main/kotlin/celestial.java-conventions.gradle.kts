@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
-import net.ltgt.gradle.errorprone.errorprone
-
 plugins {
     java
     `java-library`
     jacoco
 
-    id("net.ltgt.errorprone")
     id("com.github.sherter.google-java-format")
     id("celestial.base-conventions")
 }
@@ -29,11 +26,6 @@ plugins {
 val libs = extensions.getByType(org.gradle.accessors.dm.LibrariesForLibs::class)
 
 dependencies {
-    errorprone(libs.errorProne.core)
-
-    annotationProcessor(libs.nullaway)
-
-    compileOnly(libs.errorProne.annotations)
     compileOnly(libs.jetbrainsAnnotations)
 
     testImplementation(platform(libs.junit.bom))
@@ -54,18 +46,10 @@ tasks.jacocoTestReport {
     }
 }
 
-tasks.withType<JavaCompile>().configureEach {
-    options.errorprone.disableWarningsInGeneratedCode.set(true)
-    if (!name.toLowerCase().contains("test")) {
-        options.errorprone {
-            check("NullAway", net.ltgt.gradle.errorprone.CheckSeverity.ERROR)
-            option("NullAway:AnnotatedPackages", "io.github.celestialmc")
-        }
-    }
-}
-
 googleJavaFormat {
     options(mapOf("style" to "AOSP"))
+    exclude("**/build/")
+    exclude("**/.gradle")
 }
 
 tasks.getByName<Test>("test") {
