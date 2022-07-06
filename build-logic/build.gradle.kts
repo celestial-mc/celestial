@@ -23,7 +23,6 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.errorProne.plugin)
     implementation(libs.googleJavaFormat.plugin)
 }
 

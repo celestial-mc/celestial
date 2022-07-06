@@ -21,7 +21,6 @@ plugins {
     `java-library`
     jacoco
 
-    id("net.ltgt.errorprone")
     id("com.github.sherter.google-java-format")
     id("celestial.base-conventions")
 }
@@ -29,11 +28,6 @@ plugins {
 val libs = extensions.getByType(org.gradle.accessors.dm.LibrariesForLibs::class)
 
 dependencies {
-    errorprone(libs.errorProne.core)
-
-    annotationProcessor(libs.nullaway)
-
-    compileOnly(libs.errorProne.annotations)
     compileOnly(libs.jetbrainsAnnotations)
 
     testImplementation(platform(libs.junit.bom))
@@ -51,16 +45,6 @@ java {
 tasks.jacocoTestReport {
     reports {
         xml.required.set(true)
-    }
-}
-
-tasks.withType<JavaCompile>().configureEach {
-    options.errorprone.disableWarningsInGeneratedCode.set(true)
-    if (!name.toLowerCase().contains("test")) {
-        options.errorprone {
-            check("NullAway", net.ltgt.gradle.errorprone.CheckSeverity.ERROR)
-            option("NullAway:AnnotatedPackages", "io.github.celestialmc")
-        }
     }
 }
 
