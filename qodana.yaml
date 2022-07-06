@@ -1,0 +1,14 @@
+version: '1.0'
+
+linter: jetbrains/qodana-jvm-community:2022.1
+
+profile:
+  name: qodana.recommended
+
+exclude:
+  - name: unused
+  - name: UnusedReturnValue
+
+  - name: All
+    paths:
+      - '**/build'
