@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import net.ltgt.gradle.errorprone.errorprone
-
 plugins {
     java
     `java-library`
