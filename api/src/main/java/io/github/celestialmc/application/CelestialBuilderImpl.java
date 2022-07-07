@@ -45,17 +45,15 @@ final class CelestialBuilderImpl implements CelestialBuilder {
 
     @Override
     public @NotNull ClassLoader getClassLoader() {
-        return classLoader;
+        if (classLoader != null) {
+            return classLoader;
+        }
+        return Thread.currentThread().getContextClassLoader();
     }
 
     @Override
     public @NotNull Celestial build() {
-        if (classLoader == null) {
-            classLoader = Thread.currentThread().getContextClassLoader();
-            // The default class loader used by ServiceLoader.load()
-        }
-
-        return ServiceLoader.load(CelestialFactory.class, classLoader)
+        return ServiceLoader.load(CelestialFactory.class, getClassLoader())
                 .findFirst()
                 .orElseThrow(
                         () ->
