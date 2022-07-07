@@ -46,7 +46,7 @@ public final class Validate {
      * @throws NullPointerException if {@code input} is {@code null}.
      * @since 1.0.0
      */
-    @Contract(value = "null, _ -> fail; !null, _ -> param1")
+    @Contract(value = "null, _ -> fail; !null, _ -> param1", pure = true)
     public static <T> @NotNull T validateNotNull(@Nullable T input, @NonNls @NotNull String parameterName) {
         if (input == null) {
             throw new NullPointerException("[parameterName] cannot be null");
