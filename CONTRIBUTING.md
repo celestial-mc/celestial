@@ -28,6 +28,36 @@ implement the feature submit a detailed issue where it can be discussed beforeha
 
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
+- Commits should be all lowercase unless referencing a something that has casing
+- Commits should be in present tense
+- No full stop (.) at the end of the commit message
+
+### Commit types
+
+```
+build: A change that affects the build. 
+ci: A change that affects CI configuration. 
+docs: Documentation changes. 
+feat: A code change that adds functionality. 
+fix: A code change that fixes a bug. 
+perf: A change that improves performance. 
+refactor: A code change that neither fixes a bug nor adds a feature. 
+style: A change that fixes or improves code style. 
+test: Add, remove, or edit tests. 
+```
+
+### Scopes
+```
+gradle: changes related to gradle. 
+gha: change related to github actions. 
+qodana: changes to qodana configuration. 
+codecov: changes to codecov configuration. 
+release: changes that are required before or after a release. 
+deps: updates to dependencies. 
+readme: changes to the readme
+contributing: changes to contributing guidelines
+```
+
 ## Pull Request Guidelines
 
 TODO
@@ -36,26 +66,12 @@ TODO
 
 ### Rules
 
-- Use `java.util.Optional` instead of null unless returning null if argument is null
-- No `return null;` statements
-- Methods and parameters must be annotated with `org.jetbrains.annotations.NotNull` or 
-  `org.jetbrains.annotations.NotNull`
+- Prefer `java.lang.util.Optional` over `null`
 - Classes not made for public consumption should be marked with 
   `@org.jetbrains.annotations.ApiStatus.Experimental`
-- Public packages, classes, methods, inner classes and public or protected fields must have 
-  javadocs. 
-- All methods except void or simple getter methods (only return statement) should be annotated with 
-  `com.google.errorprone.annotations.CanIgnoreReturnValue` or 
-  `com.google.errorprone.annotations.CheckReturnValue`
 
 ### Style
 
-We use a modified version of [AOSP](https://source.android.com/setup/contribute/code-style).
-
-Notable changes:
-
-- Single blank line before method body
-- [Javadoc Style](https://www.oracle.com/au/technical-resources/articles/java/javadoc-tool.html)
-    - Use grammar in tag description
+We use a [AOSP](https://source.android.com/setup/contribute/code-style) style.
 
 The code style is set up for Intellij. Javadocs have to be formatted manually. 
