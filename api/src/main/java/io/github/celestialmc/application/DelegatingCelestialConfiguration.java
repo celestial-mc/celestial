@@ -16,6 +16,7 @@
 
 package io.github.celestialmc.application;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -30,6 +31,7 @@ public interface DelegatingCelestialConfiguration extends CelestialConfiguration
      *
      * @since 1.0.0
      */
+    @Contract(pure = true)
     @NotNull
     CelestialConfiguration getConfiguration();
 

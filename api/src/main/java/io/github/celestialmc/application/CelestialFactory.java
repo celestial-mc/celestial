@@ -37,7 +37,7 @@ public interface CelestialFactory {
      * @throws NullPointerException if {@code configuration} is null.
      * @since 1.0.0
      */
-    @Contract("_ -> new")
+    @Contract(value = "_ -> new", pure = true)
     @NotNull
     Celestial createCelestial(@NotNull CelestialConfiguration configuration);
 
@@ -47,7 +47,7 @@ public interface CelestialFactory {
      * @return The created celestial.
      * @since 1.0.0
      */
-    @Contract("-> new")
+    @Contract(value = "-> new", pure = true)
     @NotNull
     Celestial createCelestial();
 }
