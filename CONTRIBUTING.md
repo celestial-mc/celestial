@@ -28,6 +28,36 @@ implement the feature submit a detailed issue where it can be discussed beforeha
 
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
+- Commits should be all lowercase unless referencing a something that has casing
+- Commits should be in present tense
+- No full stop (.) at the end of the commit message
+
+### Commit types
+
+```
+build: A change that affects the build. 
+ci: A change that affects CI configuration. 
+docs: Documentation changes. 
+feat: A code change that adds functionality. 
+fix: A code change that fixes a bug. 
+perf: A change that improves performance. 
+refactor: A code change that neither fixes a bug nor adds a feature. 
+style: A change that fixes or improves code style. 
+test: Add, remove, or edit tests. 
+```
+
+### Scopes
+```
+gradle: changes related to gradle. 
+gha: change related to github actions. 
+qodana: changes to qodana configuration. 
+codecov: changes to codecov configuration. 
+release: changes that are required before or after a release. 
+deps: updates to dependencies. 
+readme: changes to the readme
+contributing: changes to contributing guidelines
+```
+
 ## Pull Request Guidelines
 
 TODO
