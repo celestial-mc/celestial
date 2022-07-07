@@ -42,12 +42,6 @@ TODO
 
 ### Style
 
-We use a modified version of [AOSP](https://source.android.com/setup/contribute/code-style).
-
-Notable changes:
-
-- Single blank line before method body
-- [Javadoc Style](https://www.oracle.com/au/technical-resources/articles/java/javadoc-tool.html)
-    - Use grammar in tag description
+We use a [AOSP](https://source.android.com/setup/contribute/code-style) style.
 
 The code style is set up for Intellij. Javadocs have to be formatted manually. 
