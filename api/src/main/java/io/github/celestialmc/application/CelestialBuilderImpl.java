@@ -18,7 +18,6 @@ package io.github.celestialmc.application;
 
 import java.util.Objects;
 import java.util.ServiceLoader;
-import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -30,7 +29,6 @@ import org.jetbrains.annotations.NotNull;
  *
  * @see Celestial#builder()
  */
-@ApiStatus.Internal
 final class CelestialBuilderImpl implements CelestialBuilder {
 
     private ClassLoader classLoader;
