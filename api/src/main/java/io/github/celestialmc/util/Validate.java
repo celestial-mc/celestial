@@ -23,8 +23,8 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * A utility class for validating arguments with messages that follow Celestial conventions.
- * <p>
- * Also known as preconditions.
+ *
+ * <p>Also known as preconditions.
  *
  * @since 1.0.0
  */
@@ -40,18 +40,18 @@ public final class Validate {
      *
      * @param input The input to validate.
      * @param parameterName The name of the parameter that is being validated. This is used to
-     *                      construct an error message.
+     *     construct an error message.
      * @return The input.
      * @param <T> The input type.
      * @throws NullPointerException if {@code input} is {@code null}.
      * @since 1.0.0
      */
     @Contract(value = "null, _ -> fail; !null, _ -> param1", pure = true)
-    public static <T> @NotNull T validateNotNull(@Nullable T input, @NonNls @NotNull String parameterName) {
+    public static <T> @NotNull T validateNotNull(
+            @Nullable T input, @NonNls @NotNull String parameterName) {
         if (input == null) {
             throw new NullPointerException("[parameterName] cannot be null");
         }
         return input;
     }
-
 }

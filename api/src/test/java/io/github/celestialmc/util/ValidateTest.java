@@ -33,11 +33,13 @@ class ValidateTest {
 
     @Test
     void validateNotNull_Fails_WhenInputIsNull() {
-        Throwable thrown = assertThrows(NullPointerException.class,
-                () -> Validate.validateNotNull(null, "parameterName"));
+        Throwable thrown =
+                assertThrows(
+                        NullPointerException.class,
+                        () -> Validate.validateNotNull(null, "parameterName"));
 
-        assertTrue(thrown.getMessage().contains("parameterName"),
+        assertTrue(
+                thrown.getMessage().contains("parameterName"),
                 "thrown message should contain \"parameterName\"");
     }
-
 }

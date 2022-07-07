@@ -16,10 +16,9 @@
 
 package io.github.celestialmc.application;
 
+import io.github.celestialmc.LifeCycle;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-
-import io.github.celestialmc.LifeCycle;
 
 /**
  * The application interface.

@@ -16,11 +16,10 @@
 
 package io.github.celestialmc.application;
 
-import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Objects;
 import java.util.ServiceLoader;
+import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A {@link CelestialBuilder} implementation.
