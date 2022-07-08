@@ -48,9 +48,9 @@ public final class Validate {
      */
     @Contract(value = "null, _ -> fail; !null, _ -> param1", pure = true)
     public static <T> @NotNull T validateNotNull(
-            @Nullable T input, @NonNls @NotNull String parameterName) {
+            @Nullable T input, @NonNls @Nullable String parameterName) {
         if (input == null) {
-            throw new NullPointerException("[parameterName] cannot be null");
+            throw new NullPointerException("[" + parameterName + "] cannot be null");
         }
         return input;
     }
