@@ -16,9 +16,10 @@
 
 package io.github.celestialmc.application;
 
-import java.util.Objects;
 import java.util.ServiceLoader;
 import org.jetbrains.annotations.NotNull;
+
+import io.github.celestialmc.util.Validate;
 
 /**
  * A {@link CelestialBuilder} implementation.
@@ -35,7 +36,7 @@ final class CelestialBuilderImpl implements CelestialBuilder {
 
     @Override
     public @NotNull CelestialBuilder classLoader(@NotNull ClassLoader classLoader) {
-        Objects.requireNonNull(classLoader, "[classLoader] cannot be null");
+        Validate.validateNotNull(classLoader, "classLoader");
         this.classLoader = classLoader;
         return this;
     }
