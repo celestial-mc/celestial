@@ -14,15 +14,25 @@
  * limitations under the License.
  */
 
-rootProject.name = "celestial"
+package io.github.celestialmc;
 
-dependencyResolutionManagement {
-    includeBuild("build-logic")
-}
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
-sequenceOf(
-    "api"
-).forEach {
-    include(it)
-    project(":$it").name = "${rootProject.name}-$it"
+/**
+ * Builder pattern.
+ *
+ * @param <Product> The product type.
+ * @since 1.0.0
+ */
+public interface Builder<Product> {
+
+    /**
+     * Returns the built product.
+     *
+     * @since 1.0.0
+     */
+    @Contract("-> new")
+    @NotNull
+    Product build();
 }

@@ -14,15 +14,22 @@
  * limitations under the License.
  */
 
-rootProject.name = "celestial"
+package io.github.celestialmc.application;
 
-dependencyResolutionManagement {
-    includeBuild("build-logic")
-}
+import org.jetbrains.annotations.NotNull;
 
-sequenceOf(
-    "api"
-).forEach {
-    include(it)
-    project(":$it").name = "${rootProject.name}-$it"
+/**
+ * Configuration options for {@link Celestial}.
+ *
+ * @since 1.0.0
+ */
+public interface CelestialConfiguration {
+
+    /**
+     * Returns the class loader that will be used to load services.
+     *
+     * @since 1.0.0
+     */
+    @NotNull
+    ClassLoader getClassLoader();
 }

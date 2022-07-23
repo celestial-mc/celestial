@@ -14,15 +14,6 @@
  * limitations under the License.
  */
 
-rootProject.name = "celestial"
-
-dependencyResolutionManagement {
-    includeBuild("build-logic")
-}
-
-sequenceOf(
-    "api"
-).forEach {
-    include(it)
-    project(":$it").name = "${rootProject.name}-$it"
+plugins {
+    id("celestial.java-conventions")
 }

@@ -14,15 +14,7 @@
  * limitations under the License.
  */
 
-rootProject.name = "celestial"
+package io.github.celestialmc.util;
 
-dependencyResolutionManagement {
-    includeBuild("build-logic")
-}
-
-sequenceOf(
-    "api"
-).forEach {
-    include(it)
-    project(":$it").name = "${rootProject.name}-$it"
-}
+/** Service that has no implementations. */
+public interface NotImplementedService {}

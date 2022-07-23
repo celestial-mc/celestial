@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-rootProject.name = "celestial"
-
-dependencyResolutionManagement {
-    includeBuild("build-logic")
-}
-
-sequenceOf(
-    "api"
-).forEach {
-    include(it)
-    project(":$it").name = "${rootProject.name}-$it"
-}
+/**
+ * Contains all main application classes.
+ *
+ * @since 1.0.0
+ */
+package io.github.celestialmc.application;

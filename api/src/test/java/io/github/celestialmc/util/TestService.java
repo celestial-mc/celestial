@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-rootProject.name = "celestial"
+package io.github.celestialmc.util;
 
-dependencyResolutionManagement {
-    includeBuild("build-logic")
-}
+public interface TestService {
 
-sequenceOf(
-    "api"
-).forEach {
-    include(it)
-    project(":$it").name = "${rootProject.name}-$it"
+    String getName();
 }

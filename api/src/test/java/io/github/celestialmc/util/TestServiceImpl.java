@@ -14,15 +14,12 @@
  * limitations under the License.
  */
 
-rootProject.name = "celestial"
+package io.github.celestialmc.util;
 
-dependencyResolutionManagement {
-    includeBuild("build-logic")
-}
+public class TestServiceImpl implements TestService {
 
-sequenceOf(
-    "api"
-).forEach {
-    include(it)
-    project(":$it").name = "${rootProject.name}-$it"
+    @Override
+    public String getName() {
+        return "TestServiceImpl";
+    }
 }
